@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác Nhận Thanh Toán</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .info {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .info p {
+            margin: 10px 0;
+        }
+        .confirm-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Xác Nhận Thanh Toán</h1>
+    <div class="info" id="info"></div>
+    <a href="#" class="confirm-button" onclick="confirmPayment()">Xác Nhận</a>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const hoTen = params.get('hoTen');
+        const soDT = params.get('soDT');
+        const email = params.get('email');
+        const cccd = params.get('cccd');
+        const maChuyen = params.get('maChuyen');
+        const loaiToa = params.get('loaiToa');
+        const thoiGianDi = params.get('thoiGianDi');
+        const gaDi = params.get('gaDi');
+        const gaDen = params.get('gaDen');
+        const gheChon = params.get('gheChon');
+        const giaVe = params.get('giaVe');
+        const tongTien = params.get('tongTien');
+
+        document.getElementById('info').innerHTML = `
+            <p>Họ Tên: ${hoTen}</p>
+            <p>Số Điện Thoại: ${soDT}</p>
+            <p>Email: ${email}</p>
+            <p>CCCD: ${cccd}</p>
+            <p>Mã Chuyến: ${maChuyen}</p>
+            <p>Loại Toa: ${loaiToa}</p>
+            <p>Thời Gian Đi: ${thoiGianDi}</p>
+            <p>Ga Đi: ${gaDi}</p>
+            <p>Ga Đến: ${gaDen}</p>
+            <p>Ghế Chọn: ${gheChon}</p>
+            <p>Giá Vé: ${giaVe} VND</p>
+            <p>Tổng Tiền: ${tongTien} VND</p>
+        `;
+
+        function confirmPayment() {
+            alert("Thanh toán thành công!");
+        }
+    </script>
+</body>
+</html>
